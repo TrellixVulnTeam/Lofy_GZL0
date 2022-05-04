@@ -1,0 +1,36 @@
+/*root: propiedad de css para declarar variables*/
+:root{ /*PAleta de colores de la web*/
+  --color-0: rgb(252, 249, 234); /*Fondo main*/
+  --color-1: #1DB954;
+  --color-2: rgb(212, 226, 212);
+  --color-3: rgb(236, 179, 144);  /*Barra navegacion*/
+  --color-4: rgb(65, 23, 12);
+  --color-5: rgb(223, 120, 97); /*Barra playlist*/
+  --font-size-1: 1rem;
+  --font-size-2: 1.2rem;
+  --font-size-3: 1.8rem;
+  --border-radius-1: .25rem;
+  --border-radius-2: .5rem;
+  /*las fonts de google:*/
+  --font-family-1: 'Poppins', sans-serif;
+  --animation-1: 200ms;
+}
+html, /*Plantilla de estilos para todo el html y body*/
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-3); /*var coge las variables que hemos creado en root*/
+    font-family: var(--font-family-1);
+    font-size: var(--font-size-1);
+    color: var(--color-4);
+}
+
+input, /*Plantilla para los inputs y botones*/
+button {
+    cursor: pointer;
+    font-family: var(--font-family-1);
+}
+
+button:disabled {
+    opacity: .5; /*Transparencia de la mitad cuando esta deshabilitado el boton*/
+}

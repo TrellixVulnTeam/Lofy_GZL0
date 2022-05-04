@@ -1,0 +1,37 @@
+<div class="favorites-page"> <!--Dejo la clase por si mas adelante modificamos el estilo-->
+  <app-play-list-header></app-play-list-header> <!--llamamos al modulo compartido (hace referencia a playlistheader) para que se muestre en nuestro /favorites-->
+  <div class="play-list-body">
+    <ul class="play-list-table-header">
+        <li>Nombre</li>
+        <li>álbum</li>
+        <li><i class="uil uil-clock-eight"></i></li>
+    </ul>
+    <ul class="play-list-rows" *ngFor="let track of tracksFavoritos">
+        <li class="track-name"> <!--la directiva *ngtemplateoutlet afecta a la estructura. Todos los ng que empiecen por * tambien-->
+          <button (click)="sendPlay(track)">
+          <ng-container *ngTemplateOutlet="coverSection;context:{track:track}"></ng-container> <!--el contexto: unos datos independientes-->
+          </button>
+        </li>                               <!--hace referencia a un alias de un ngtemplate que esta abajo-->
+        <li class="track-name-opacity">
+            {{track.album}}
+        </li>
+        <li class="track-name-opacity">
+            {{track._id}}
+        </li>
+
+    </ul>
+  </div>
+
+  <!--template del cover-->
+  <ng-template #coverSection let-track="track"> <!--el template al que se hace referencia-->
+                         <!-- el let es para declarar una variable track que va a ser igual a la propiedad del ngtemplate (track)-->
+    <div class="cover-section">
+        <img appImgBroken class="cover-track" [src]="track.cover" [alt]="track.name">
+        <div class="cover-info">
+            <div class="name-track">{{track.name}}</div>
+        </div>
+    </div>
+
+  </ng-template>
+
+</div>

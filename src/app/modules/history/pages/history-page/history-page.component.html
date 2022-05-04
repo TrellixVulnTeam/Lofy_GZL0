@@ -1,0 +1,5 @@
+<div class="history-page">
+  <app-search (callbackData)="receiveData($event)"></app-search>
+  <app-play-list-body [tracks]="listResults$ | async"></app-play-list-body> <!--async es un metodo de angular que ayuda a que el observable listresults
+    se desuscriba de las peticiones cuando haya muchas en el buscador, se le ira dando preferencia a la mas reciente-->
+</div>
