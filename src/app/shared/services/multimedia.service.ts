@@ -123,7 +123,8 @@ export class MultimediaService {
     const { duration } = this.audio
     const percentageToSecond = (percentage * duration) / 100
     this.audio.currentTime = percentageToSecond
-//para la barrita negra que ira haciendose mas grande segun el tiempo que lleve de4 reproduccion
+
+    //para la barrita negra que ira haciendose mas grande segun el tiempo que lleve de4 reproduccion//para la barrita negra que ira haciendose mas grande segun el tiempo que lleve de4 reproduccion//para la barrita negra que ira haciendose mas grande segun el tiempo que lleve de4 reproduccion//para la barrita negra que ira haciendose mas grande segun el tiempo que lleve de4 reproduccion//para la barrita negra que ira haciendose mas grande segun el tiempo que lleve de4 reproduccion//para la barrita negra que ira haciendose mas grande segun el tiempo que lleve de4 reproduccion//para la barrita negra que ira haciendose mas grande segun el tiempo que lleve de4 reproduccion//para la barrita negra que ira haciendose mas grande segun el tiempo que lleve de4 reproduccion//para la barrita negra que ira haciendose mas grande segun el tiempo que lleve de4 reproduccion//para la barrita negra que ira haciendose mas grande segun el tiempo que lleve de4 reproduccion//para la barrita negra que ira haciendose mas grande segun el tiempo que lleve de4 reproduccion//para la barrita negra que ira haciendose mas grande segun el tiempo que lleve de4 reproduccion//para la barrita negra que ira haciendose mas grande segun el tiempo que lleve de4 reproduccion
   }
 
   //imprime el track que hemos cogido
