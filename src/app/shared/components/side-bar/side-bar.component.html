@@ -1,5 +1,5 @@
 <div class="side-bar">
-  <div><i class="uil uil-ellipsis-h"></i></div>
+  <!--<div><i class="uil uil-ellipsis-h"></i></div>-->
   <ul class="side-bar__list list-one">
       <li [routerLink]="item.router" [queryParams]="item.queryParams"  *ngFor="let item of mainMenu.defaultOptions">
           <div class="list-wrapper-item">
@@ -8,6 +8,7 @@
           </div>
       </li>
   </ul>
+
   <div class="side-bar__separator"></div>
   <ul class="side-bar__list list-two">
       <li *ngFor="let item of mainMenu.accessLink">
@@ -25,4 +26,7 @@
           </div>
       </li>
   </ul>
+
+<p>hola xd</p>
 </div>
+

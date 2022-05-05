@@ -22,13 +22,11 @@ export class TrackService {
     return this.httpClient.get("https://lofy-8d070-default-rtdb.europe-west1.firebasedatabase.app/data.json")
   }
 
-  getAllRandom$():Observable<any> { //igual que el otro metodo pero para devolver aleatorio
-    //peticion al backend (api)
+  getAllRandom$():Observable<any> {
     return this.httpClient.get("https://lofy-8d070-default-rtdb.europe-west1.firebasedatabase.app/data.json")
   }
 
-  getFavoritos$():Observable<any> { //igual que el otro metodo pero para devolver aleatorio
-    //peticion al backend (api)
+  getFavoritos$():Observable<any> {
     return this.httpClient.get("https://lofyfavoritos-default-rtdb.europe-west1.firebasedatabase.app/favoritos.json")
   }
   //bbdd con firebase

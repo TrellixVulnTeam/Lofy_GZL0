@@ -22,7 +22,10 @@ export class FavoritesPageComponent implements OnInit {
   ngOnInit(): void {
 
         this.trackService.getFavoritos$().subscribe((response: TrackModel[]) => { //necesito suscribirme para poder ver los datos
-          this.tracksFavoritos = response;
+          //console.log(response);
+          this.tracksFavoritos=Object.values(response);
+          //this.tracksFavoritos = response;
+          this.multimediaService.setFavoritos(this.tracksFavoritos);
         })
 
   }

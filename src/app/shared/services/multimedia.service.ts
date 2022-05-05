@@ -12,6 +12,8 @@ import { HttpClient } from '@angular/common/http'
 export class MultimediaService {
   callback: EventEmitter<any> = new EventEmitter<any>()
 
+  public arrayTracks:TrackModel[]=[]
+
   public trackInfo$: BehaviorSubject<any> = new BehaviorSubject(undefined)
   public track!: TrackModel;
   public audio!: HTMLAudioElement // audio del servicio HTMLElement
@@ -129,7 +131,6 @@ export class MultimediaService {
 
   //imprime el track que hemos cogido
   public botonFavorito(): void {
-      console.log(this.track);
       this.arrayTracks.push(this.track)
       this.postCanciones(this.arrayTracks);
   }
@@ -139,12 +140,15 @@ export class MultimediaService {
       this.httpClient.put("https://lofyfavoritos-default-rtdb.europe-west1.firebasedatabase.app/favoritos.json", cancion).subscribe({
         next: (v) => console.log('Todo ha ido guay ' + v),
         error: (e) => console.log('Error' + e),
-      }
-      )
+      })
+      this.arrayVacio = cancion;
   }
 
-  arrayTracks:TrackModel[]=[
+  arrayVacio:TrackModel[]=[]
 
-  ]
+  setFavoritos(arrayCanciones:TrackModel[]){
+    this.arrayTracks=arrayCanciones;
+
+  }
 
 }

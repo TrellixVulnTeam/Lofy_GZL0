@@ -23,7 +23,7 @@ customOptions: Array<any> = []
       {
         name: 'Home',
         icon: 'uil uil-estate', //los iconos se sacan de la libreria
-        router: ['/', 'auth']
+        router: ['/', 'tracks']
       },
       {
         name: 'Buscar',
@@ -33,19 +33,20 @@ customOptions: Array<any> = []
       {
         name: 'Tu biblioteca',
         icon: 'uil uil-chart',
-        router: ['/', 'favorites'],
-        query: { hola: 'mundo' }
+        router: ['/', 'favorites']
+      },
+
+      {
+        name: 'Cerrar sesión',
+        icon: 'uil uil-sad',
+        router: ['/', 'auth/login'],
       }
     ]
+
+    //pendiente de mas opciones
+
     this.mainMenu.accessLink = [
-      {
-        name: 'Crear lista',
-        icon: 'uil-plus-square'
-      },
-      {
-        name: 'Canciones que te gustan',
-        icon: 'uil-heart-medical'
-      }
+
     ]
 
     this.customOptions = []
