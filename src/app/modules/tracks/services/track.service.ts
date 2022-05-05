@@ -27,17 +27,15 @@ export class TrackService {
     return this.httpClient.get("https://lofy-8d070-default-rtdb.europe-west1.firebasedatabase.app/data.json")
   }
 
+  getFavoritos$():Observable<any> { //igual que el otro metodo pero para devolver aleatorio
+    //peticion al backend (api)
+    return this.httpClient.get("https://lofyfavoritos-default-rtdb.europe-west1.firebasedatabase.app/favoritos.json")
+  }
   //bbdd con firebase
 
   getCanciones$():Observable<any>{
     return this.httpClient.get("https://lofy-8d070-default-rtdb.europe-west1.firebasedatabase.app/data.json")
   }
 
-  postCanciones(favoritos:TrackModel[]){
-    this.httpClient.post("https://lofy-8d070-default-rtdb.europe-west1.firebasedatabase.app/data.json", TrackModel).subscribe({
-      next: (v) => console.log('Todo ha ido guay ' + v),
-      error: (e) => console.log('Error' + e),
-    }
-    )
-  }
+
 }

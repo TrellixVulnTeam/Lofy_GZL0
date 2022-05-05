@@ -21,9 +21,7 @@ export class FavoritesPageComponent implements OnInit {
 
   ngOnInit(): void {
 
-
-
-        this.trackService.getAllRandom$().subscribe((response: TrackModel[]) => { //necesito suscribirme para poder ver los datos
+        this.trackService.getFavoritos$().subscribe((response: TrackModel[]) => { //necesito suscribirme para poder ver los datos
           this.tracksFavoritos = response;
         })
 

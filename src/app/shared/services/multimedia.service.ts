@@ -1,6 +1,10 @@
+
+
 import { TrackModel } from '@core/models/tracks.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { EventEmitter, Injectable } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { HttpClient } from '@angular/common/http'
 //import { AngularFireDatabase, AngularFireList } from "@angular/fire/database";
 @Injectable({
   providedIn: 'root'
@@ -9,6 +13,7 @@ export class MultimediaService {
   callback: EventEmitter<any> = new EventEmitter<any>()
 
   public trackInfo$: BehaviorSubject<any> = new BehaviorSubject(undefined)
+  public track!: TrackModel;
   public audio!: HTMLAudioElement // audio del servicio HTMLElement
   public timeElapsed$: BehaviorSubject<string> = new BehaviorSubject('00:00')//declaramos el 00 para la base del tiempo transcurrido
   public timeRemaining$: BehaviorSubject<string> = new BehaviorSubject('-00:00') //tiempo restante
@@ -17,7 +22,7 @@ export class MultimediaService {
   //barra reproduccion
   public playerPercentage$: BehaviorSubject<number> = new BehaviorSubject(0)
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
 
     this.audio = new Audio()
 
@@ -105,6 +110,7 @@ export class MultimediaService {
 
   public setAudio(track: TrackModel): void {
     console.log('🐱‍🏍🐱‍🏍🐱‍🏍🐱‍🏍🐱‍🏍', track);
+    this.track = track;
     this.audio.src = track.url;//la url del archivo mp3 va a ser igual a track.url
     this.audio.play();
   }
@@ -120,8 +126,24 @@ export class MultimediaService {
 //para la barrita negra que ira haciendose mas grande segun el tiempo que lleve de4 reproduccion
   }
 
-  public anadirFavorito(): void {
-
+  //imprime el track que hemos cogido
+  public botonFavorito(): void {
+      console.log(this.track);
+      this.arrayTracks.push(this.track)
+      this.postCanciones(this.arrayTracks);
   }
+
+  //metodo para postear TODO
+  postCanciones(cancion:TrackModel[]){
+      this.httpClient.put("https://lofyfavoritos-default-rtdb.europe-west1.firebasedatabase.app/favoritos.json", cancion).subscribe({
+        next: (v) => console.log('Todo ha ido guay ' + v),
+        error: (e) => console.log('Error' + e),
+      }
+      )
+  }
+
+  arrayTracks:TrackModel[]=[
+
+  ]
 
 }
