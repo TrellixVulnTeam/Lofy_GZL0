@@ -1,6 +1,11 @@
 <div class="side-bar">
   <!--<div><i class="uil uil-ellipsis-h"></i></div>-->
   <ul class="side-bar__list list-one">
+      <li>
+        <img class="logo" src="./assets/lofylogo.png" width="210">
+      </li>
+      <div class="side-bar__separator line-separator"></div>
+
       <li [routerLink]="item.router" [queryParams]="item.queryParams"  *ngFor="let item of mainMenu.defaultOptions">
           <div class="list-wrapper-item">
               <i [ngClass]="['uil',item.icon]"></i>
@@ -26,7 +31,5 @@
           </div>
       </li>
   </ul>
-
-<p>hola xd</p>
 </div>
 

@@ -28,6 +28,14 @@ export class FavoritesPageComponent implements OnInit {
           this.multimediaService.setFavoritos(this.tracksFavoritos);
         })
 
+/*
+        this.trackService.getFavoritosBackup$().subscribe((response: TrackModel[]) => { //necesito suscribirme para poder ver los datos
+          //console.log(response);
+          this.tracksFavoritos=Object.values(response);
+          //this.tracksFavoritos = response;
+          this.multimediaService.setFavoritos(this.tracksFavoritos);
+        })
+        */
   }
 
   ngOnDestroy(): void {

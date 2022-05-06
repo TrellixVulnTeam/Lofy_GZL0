@@ -29,6 +29,10 @@ export class TrackService {
   getFavoritos$():Observable<any> {
     return this.httpClient.get("https://lofyfavoritos-default-rtdb.europe-west1.firebasedatabase.app/favoritos.json")
   }
+
+  getFavoritosBackup$():Observable<any> {
+    return this.httpClient.get("https://lofyfavoritosbackup-default-rtdb.europe-west1.firebasedatabase.app/favoritosBackup.json")
+  }
   //bbdd con firebase
 
   getCanciones$():Observable<any>{

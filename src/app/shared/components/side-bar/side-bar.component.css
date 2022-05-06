@@ -1,3 +1,8 @@
+.logo{
+  padding-left: 0.1rem;
+  padding-top: 0.3rem;
+}
+
 .side-bar {
   width: 15.5rem;
   height: 100vh;
@@ -49,3 +54,10 @@
   cursor: pointer;
 }
 
+.side-bar__list list-four {
+  font-size: var(--font-size-1);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}

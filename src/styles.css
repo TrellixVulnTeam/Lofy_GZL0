@@ -1,7 +1,7 @@
 /*root: propiedad de css para declarar variables*/
 :root{ /*PAleta de colores de la web*/
   --color-0: rgb(252, 249, 234); /*Fondo main*/
-  --color-1: #1DB954;
+  --color-1: rgb(212, 226, 212);
   --color-2: rgb(212, 226, 212);
   --color-3: rgb(236, 179, 144);  /*Barra navegacion*/
   --color-4: rgb(65, 23, 12);

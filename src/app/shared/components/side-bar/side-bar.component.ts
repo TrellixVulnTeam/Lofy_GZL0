@@ -10,8 +10,8 @@ export class SideBarComponent implements OnInit {
 
   mainMenu: { //inicializar | va a contener un objeto y ese objeto a su vez tendra dos propiedades
     //default y access
-    defaultOptions: Array<any>, accessLink:Array<any> //lista de arrays
-  } = { defaultOptions: [], accessLink: []}
+    defaultOptions: Array<any>, accessLink:Array<any>, cerrarSesion:Array<any> //lista de arrays
+  } = { defaultOptions: [], accessLink: [], cerrarSesion: []}
 
 customOptions: Array<any> = []
 
@@ -42,23 +42,31 @@ customOptions: Array<any> = []
         router: ['/', 'auth/login'],
       }
     ]
-
-    //pendiente de mas opciones
-
-    this.mainMenu.accessLink = [
-
+    this.customOptions = [
+      {
+        name: 'Mi lista º1 (Próximamente)',
+        router: ['/']
+      },
+      {
+        name: 'Mi lista º2',
+        router: ['/']
+      },
+      {
+        name: 'Mi lista º3',
+        router: ['/']
+      },
+      {
+        name: 'Mi lista º4',
+        router: ['/']
+      }
     ]
-
-    this.customOptions = []
 
   }
 
   goTo($event: any): void{
     this.router.navigate(['/', 'favorites'],{
       queryParams:{
-        key1:"value1",
-        key2:"value2",
-        key3:"value3"
+
       }
     })
   }

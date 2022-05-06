@@ -133,9 +133,11 @@ export class MultimediaService {
   public botonFavorito(): void {
       this.arrayTracks.push(this.track)
       this.postCanciones(this.arrayTracks);
+      //this.postCancionesBackup(this.arrayTracks);
   }
 
   //metodo para postear TODO
+
   postCanciones(cancion:TrackModel[]){
       this.httpClient.put("https://lofyfavoritos-default-rtdb.europe-west1.firebasedatabase.app/favoritos.json", cancion).subscribe({
         next: (v) => console.log('Todo ha ido guay ' + v),
@@ -143,6 +145,16 @@ export class MultimediaService {
       })
       this.arrayVacio = cancion;
   }
+/*
+
+  postCancionesBackup(cancion:TrackModel[]){
+    this.httpClient.put("https://lofyfavoritosbackup-default-rtdb.europe-west1.firebasedatabase.app/favoritosBackup.json", cancion).subscribe({
+      next: (v) => console.log('Todo ha ido guay ' + v),
+      error: (e) => console.log('Error' + e),
+    })
+    this.arrayVacio = cancion;
+}
+*/
 
   arrayVacio:TrackModel[]=[]
 
