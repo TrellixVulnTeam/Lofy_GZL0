@@ -7,6 +7,8 @@ import { collection, query, where } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-favorites-page',
@@ -14,6 +16,7 @@ import { getAnalytics } from "firebase/analytics";
   styleUrls: ['./favorites-page.component.css']
 })
 export class FavoritesPageComponent implements OnInit {
+
   listObservers$:Array<Subscription> = []
   @Input() tracksFavoritos:Array<TrackModel> = [];
   //inyectamos servicio de tracks

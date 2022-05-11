@@ -3,6 +3,7 @@ import { TrackModel } from '@core/models/tracks.model';
 import { MultimediaService } from '@shared/services/multimedia.service';
 import { Subscription } from 'rxjs';
 
+
 @Component({
   selector: 'app-media-player', // <==== con esto llamamos en el html al componente
   templateUrl: './media-player.component.html',
@@ -22,6 +23,7 @@ export class MediaPlayerComponent implements OnInit, OnDestroy {
   //la suscripcion es decirle al componente "tienes que estar pendiente
   //de que pase X cosa" y "ya no estes pendiente"
   ngOnInit(): void {
+
 
     const obserber1$ = this.multimediaService.playerStatus$.subscribe(status => this.state = status) //con el observable nos suscribimos al status del reproductor
     //y lo metemos en la variable state creada en la clase

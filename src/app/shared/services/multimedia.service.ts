@@ -5,17 +5,21 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http'
+import Swal from 'sweetalert2';
+
 //import { AngularFireDatabase, AngularFireList } from "@angular/fire/database";
 @Injectable({
   providedIn: 'root'
 })
 export class MultimediaService {
   callback: EventEmitter<any> = new EventEmitter<any>()
-
+  //sweet alerts
+  //array vacio
   public arrayTracks:TrackModel[]=[]
 
   public trackInfo$: BehaviorSubject<any> = new BehaviorSubject(undefined)
   public track!: TrackModel;
+  public index:number = 0;
   public audio!: HTMLAudioElement // audio del servicio HTMLElement
   public timeElapsed$: BehaviorSubject<string> = new BehaviorSubject('00:00')//declaramos el 00 para la base del tiempo transcurrido
   public timeRemaining$: BehaviorSubject<string> = new BehaviorSubject('-00:00') //tiempo restante
@@ -137,11 +141,37 @@ export class MultimediaService {
 
   //imprime el track que hemos cogido
   public botonFavorito(): void {
+//TODO consultar si el track esta ya añadido a la bbdd
+//alertapersonalizada
+    Swal.fire({
+      icon: 'success',
+      title: 'Canción añadida con éxito :)',
+      background: "#FCF9EA",
+      color: "#633627",
+      showConfirmButton: false,
+      timer: 1500
+    })
       this.arrayTracks.push(this.track)
       this.postCanciones(this.arrayTracks);
       //this.postCancionesBackup(this.arrayTracks);
   }
 
+  public botonDeleteFavorito(): void {
+//alertapersonalizada
+Swal.fire({
+  icon: 'success',
+  title: 'Canción eliminada con éxito :)',
+  background: "#FCF9EA",
+  color: "#633627",
+  showConfirmButton: false,
+  timer: 1600
+})
+    const indexFav:number = this.arrayTracks.indexOf(this.arrayTracks.find(x => x._id == this.track._id)!); //buscar indice
+    this.index = indexFav;
+    console.log("track eliminado en posicion: " + this.index)
+    this.deleteCanciones(this.arrayTracks);
+    this.arrayTracks.splice(indexFav); //eliminar de arrat por indice
+}
   //metodo para postear TODO
 
   postCanciones(cancion:TrackModel[]){
@@ -151,7 +181,17 @@ export class MultimediaService {
       })
       this.arrayVacio = cancion;
   }
+
+  deleteCanciones(cancion:TrackModel[]){
+    this.httpClient.delete(`https://lofyfavoritos-default-rtdb.europe-west1.firebasedatabase.app/favoritos/${this.index}.json`).subscribe({
+      next: (v) => console.log('Todo ha ido guay ' + v),
+      error: (e) => console.log('Error' + e),
+    })
+
+    this.arrayVacio = cancion;
+}
 /*
+
 
   postCancionesBackup(cancion:TrackModel[]){
     this.httpClient.put("https://lofyfavoritosbackup-default-rtdb.europe-west1.firebasedatabase.app/favoritosBackup.json", cancion).subscribe({
@@ -164,9 +204,9 @@ export class MultimediaService {
 
   arrayVacio:TrackModel[]=[]
 
+
   setFavoritos(arrayCanciones:TrackModel[]){
     this.arrayTracks=arrayCanciones;
-
   }
 
 }
