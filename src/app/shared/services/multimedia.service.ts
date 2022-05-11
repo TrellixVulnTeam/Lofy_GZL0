@@ -109,12 +109,18 @@ export class MultimediaService {
 
 
   //metodos publicos
+  public nextSong(){
+    const idSiguiente = this.track._id+1;
+    //this.track =
+  }
+
 
   public setAudio(track: TrackModel): void {
     console.log('🐱‍🏍🐱‍🏍🐱‍🏍🐱‍🏍🐱‍🏍', track);
     this.track = track;
     this.audio.src = track.url;//la url del archivo mp3 va a ser igual a track.url
     this.audio.play();
+
   }
 
   public togglePlayer(): void {

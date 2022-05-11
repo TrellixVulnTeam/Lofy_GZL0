@@ -19,7 +19,6 @@ export class PlayListBodyComponent implements OnInit, OnDestroy {
     this.trackService.getCanciones$().subscribe((response: TrackModel[]) => {
       this.tracks = response
     })
-
 */
   }
 
@@ -31,5 +30,7 @@ export class PlayListBodyComponent implements OnInit, OnDestroy {
     //emit sirve para enviar
     //este metodo enviara el objeto track al reproductor
     this.multimediaService.trackInfo$.next(track) //le dice a trackinfo que mande el track por el "tubo del observable"
+
   }
+
 }

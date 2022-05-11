@@ -8,10 +8,10 @@ import { Router } from "@angular/router";
 })
 export class SideBarComponent implements OnInit {
 
-  mainMenu: { //inicializar | va a contener un objeto y ese objeto a su vez tendra dos propiedades
+  mainMenu: { //inicializar | va a contener dos objetos y esos objetos a su vez tendran dos propiedades
     //default y access
-    defaultOptions: Array<any>, accessLink:Array<any>, cerrarSesion:Array<any> //lista de arrays
-  } = { defaultOptions: [], accessLink: [], cerrarSesion: []}
+    defaultOptions: Array<any>, accessLink:Array<any> //lista de arrays
+  } = { defaultOptions: [], accessLink: []}
 
 customOptions: Array<any> = []
 
@@ -26,9 +26,9 @@ customOptions: Array<any> = []
         router: ['/', 'tracks']
       },
       {
-        name: 'Buscar',
+        name: 'Buscar', //nombre
         icon: 'uil uil-search',
-        router: ['/', 'history']
+        router: ['/', 'history'] //ruta a la que se dirigira el usuario al hacer click en el
       },
       {
         name: 'Tu biblioteca',
@@ -63,12 +63,5 @@ customOptions: Array<any> = []
 
   }
 
-  goTo($event: any): void{
-    this.router.navigate(['/', 'favorites'],{
-      queryParams:{
-
-      }
-    })
-  }
 
 }

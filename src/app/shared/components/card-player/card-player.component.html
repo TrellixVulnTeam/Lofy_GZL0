@@ -1,12 +1,12 @@
 <!-- Diseño del mode (small)-->
-<div appImageBroken *ngIf="mode==='small'" class="card-player player-small">
+<div appImageBroken *ngIf="mode==='small'" class="card-player player-small"> <!--TARJETA PEQUEÑA-->
   <img [src]="track.cover" [alt]="track.name" class="cover"> <!--directiva aplicada en el div para imagen que no se pueda mostrar-->
   <div class="content-player">
-      {{track.name}}
+      {{track.name}} <!-- LLama al atributo name del track-->
   </div>
   <div class="buttons-player">
-        <button (click)="sendPlay(track)" *ngIf="true" class="play-btn">
-          <i class="uil " [ngClass]="{'uil-play':true}"></i>
+        <button (click)="sendPlay(track)" *ngIf="true" class="play-btn"> <!--boton para darle al play a la cancion-->
+          <i class="uil " [ngClass]="{'uil-play':true}"></i> <!--icono del boton play-->
       </button>
       <button *ngIf="false" class="play-btn">
           <i class="uil uil-play"></i>
@@ -15,16 +15,16 @@
 </div>
 
 <!-- Diseño del mode (big)-->
-<div *ngIf="mode==='big'" class="card-player player-big">
+<div *ngIf="mode==='big'" class="card-player player-big"> <!--TARJETA GRANDE-->
 
   <img [src]="track.cover" alt="" class="cover">
 
   <div class="content-player">
       <div class="title-track">{{track.name}}</div>
-      <div class="sub-title-track">{{track.name}}</div>
+      <div class="sub-title-track">{{track.album}}</div> <!--Ademas del nombre, como en la pequeña, tambien muestra el album-->
   </div>
   <div class="buttons-player">
-      <button (click)="sendPlay(track)" *ngIf="true" class="play-btn">
+      <button (click)="sendPlay(track)" *ngIf="true" class="play-btn"> <!--el if es para saber si se encuentra haciendo un hover sobre la tarjeta-->
           <i class="uil " [ngClass]="{'uil-play':true}"></i>
       </button>
       <button *ngIf="false" class="play-btn">

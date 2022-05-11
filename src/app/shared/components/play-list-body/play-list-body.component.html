@@ -2,20 +2,20 @@
   <ul class="play-list-table-header">
       <li>Nombre</li>
       <li>álbum</li>
-      <li><i class="uil uil-clock-eight"></i></li>
+     <!-- <li><i class="uil uil-clock-eight"></i></li> -->
   </ul>
   <ul class="play-list-rows" *ngFor="let track of tracks">
       <li class="track-name"> <!--la directiva *ngtemplateoutlet afecta a la estructura. Todos los ng que empiecen por * tambien-->
-        <button (click)="sendPlay(track)">
+        <button class="botonBuscador" (click)="sendPlay(track)">
         <ng-container *ngTemplateOutlet="coverSection;context:{track:track}"></ng-container> <!--el contexto: unos datos independientes-->
         </button>
       </li>                               <!--hace referencia a un alias de un ngtemplate que esta abajo-->
       <li class="track-name-opacity">
           {{track.album}}
       </li>
-      <li class="track-name-opacity">
+  <!--    <li class="track-name-opacity">
           {{track.album}}
-      </li>
+      </li> -->
 
   </ul>
 </div>

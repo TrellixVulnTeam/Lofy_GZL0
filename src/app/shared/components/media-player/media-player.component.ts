@@ -25,6 +25,11 @@ export class MediaPlayerComponent implements OnInit, OnDestroy {
 
     const obserber1$ = this.multimediaService.playerStatus$.subscribe(status => this.state = status) //con el observable nos suscribimos al status del reproductor
     //y lo metemos en la variable state creada en la clase
+    /*
+    El observer de media-player igualará el status del track a pause de manera predefinida,
+    para que no comience la canción al hacer click en el card del track,
+    solo al darle al botón de play.
+    */
 
     this.listObservers$ = [obserber1$] //para desuscribirse cuando se "destruya" el componente
     /*

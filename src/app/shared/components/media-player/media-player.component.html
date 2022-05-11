@@ -1,6 +1,6 @@
 <div class="media-player">
-    <div class="media-player--wrapper ">
-        <!--Zona del artista-->
+    <div class="media-player--wrapper "> <!--parte de la izquierda, donde se mostraran los datos del track en pequeño-->
+        <!--Zona del artista -->
         <div class="artist player-center">
             <ng-container *ngTemplateOutlet="artistZone"></ng-container>
         </div>
@@ -16,17 +16,19 @@
 </div>
 
 <!-- ZONE TEMPLATES -->
+<!-- Los templates se pueden declarar antes de inicializar, ya que haran referencia a esta parte gracias al ng-container
+haciendo asi que sea mas facil de leer el html-->
 
 <ng-template #artistZone>
-    <div class="artist-inside" *ngIf="multimediaService.trackInfo$ | async as mockCover"> <!--as para alias-->
+    <div class="artist-inside" *ngIf="multimediaService.trackInfo$ | async as mockCover"> <!--as para el alias que le pondremos al atributo del servicio-->
 
-        <img [src]="mockCover.cover" alt="" class="cover">
+        <img [src]="mockCover.cover" alt="" class="cover"> <!--aqui se llama y se muestra el .cover del track y mas abajo el nombre y el album-->
         <div class="track-info">
             <h3 class="track-title">{{mockCover.name}}</h3>
             <h5 class="track-title sub-title">{{mockCover?.album}}</h5>
         </div>
         <div class="track-like">
-            <button (click)="multimediaService.botonFavorito()" class="btn-like">
+            <button (click)="multimediaService.botonFavorito()" class="btn-like"> <!--boton para mandar track a la biblioteca de favoritos-->
                 <i class="uil uil-heart"></i>
             </button>
         </div>

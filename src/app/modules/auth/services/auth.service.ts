@@ -16,6 +16,6 @@ export class AuthService {
       email,
       password
     }
-    return this.http.post(`${this.URL}/auth/login`, body)
+    return this.http.post(`${this.URL}/auth/login`, body) //el body son los datos de mail y pass
   }
 }
